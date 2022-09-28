@@ -1,0 +1,27 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Theorem 1.4}
+\begin{wts} %avoid empty lines
+   % Write assertion here
+   $f: A \to B$ is a function, and $A_1, A_2\subseteq A$ and $B_1, B_2\subseteq B$. Show that $f(A_1\cup A_2) = f(A_1)\cup f(A_2)$.
+\end{wts}
+
+\begin{proof}
+    % Write Proof here
+    For any two sets $A_1, A_2\subseteq A$,
+    \begin{align*}
+        f(A_1\cup A_2)&= \{f(x): x\in A_1\cup A_2\}\\
+        &=\{f(x): x\in A_1 \text{ or } x\in A_2\}\\
+        &= \{f(x): x\in A_1 \text{ or } f(x): x\in A_2\}\\
+        &= f(A_1)\cup f(A_2)
+    \end{align*}
+\end{proof} %avoid empty lines
+\begin{corollary}\label{corollary:direct_image_monotonic}
+        The direct image is monotonic. For every $E_1\subseteq E_2\subseteq A$, then $f(E_1)\subseteq f(E_2)\subseteq B$.
+    \begin{proof}
+        Apply Theorem \hyperlink{subsection.0.1}{Theorem ?} to sets $E_2 = (E_2\setminus E_1) \cup (E_2\cap E_1)$, then $f(E_2) = f(E_2\setminus E_1)\cup f(E_2\cap E_1)$ implies that  $f(E_1)\subseteq f(E_2)$.
+    \end{proof}
+\end{corollary}
+
+\end{document}

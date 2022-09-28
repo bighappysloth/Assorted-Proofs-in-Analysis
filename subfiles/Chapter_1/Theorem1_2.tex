@@ -1,0 +1,21 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Theorem 1.2}
+\begin{wts}
+    $(A\setminus B)\cup(B\setminus A) = (A\cup B)\setminus(A\cap B)$.
+\end{wts}
+
+\begin{proof}
+    Define $W = (A\setminus B)\cup (B\setminus A)$, then we will apply Q1a, and deMorgan's Theorem.
+\begin{align*}
+    W^c &= (A^c\cup B)\cap(B^c\cup A)\\
+    &=((A^c\cup B)\cap B^c) \cup\, ((A^c\cup B)\cap A)\\
+    &= (A^c \cap B^c)\cup (A\cap B)\\
+    &= (A\cup B)^c \cup (A\cap B)\\
+    &= [(A\cup B)\setminus(A\cap B)]^c
+\end{align*}
+Taking complements on both sides finishes the proof.
+\end{proof}
+
+\end{document}

@@ -1,0 +1,54 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Triangle Inequality}
+\begin{wts}
+    Prove the Triangle Inequality with $n\geq 2$.
+\end{wts}
+\newcommand{\sumn}[1]{\sum_{j=1}^{#1}}
+\begin{lemma}
+    The Triangle Inequality, for every $a, b\in\mathbb{R}$
+    \[
+    |a+b|\leq |a| + |b|
+    \]
+\end{lemma}
+\begin{proof}
+    Notice that for every $a,b \in \mathbb{R}$
+    \begin{itemize}
+        \item $-|a|\leq a\leq +|a|$
+        \item $-|b|\leq b\leq +|b|$
+    \end{itemize}
+    Add two inequalities together, then we get
+    \[
+    -\left(|a| + |b|\right)\leq (a + b) \leq +\left(|a| + |b|\right)
+    \]
+    Since $|a| + |b|\geq 0$, we get $|a+b|\leq |a| + |b|$ as desired. Because for every $c\geq 0$,
+    \begin{align*}
+        c\geq |a|&\iff c\geq\max{\{-a, +a\}}\\
+        &\iff c\geq a\text{ and }c\geq -a\\
+        &\iff c\geq a\text{ and }-c\leq a\\
+        &\iff -c\leq a\leq +c
+    \end{align*}
+\end{proof}
+Main proof for Triangle Inequality
+\begin{proof}
+    For every $x_1$, $x_2$ in $\mathbb{R}$,
+    \[
+    \left|\sumn{2} x_j\right|\leq \sumn{2}\left|x_j\right|
+    \]
+    This proves the non trivial base case, if $n=1$ then obviously $|x_1|\leq |x_1|$. We now suppose that
+    \[
+    \left|\sumn{k} x_j\right|\leq \sumn{k}\left|x_j\right|
+    \]
+    Then write
+    \[
+    \left|\sumn{k+1} x_j\right| = \left|\left(\sumn{k} x_j\right) + (x_{k+1})\right| 
+    \]
+    Applying the second estimate to the right member gives us
+    \[
+    \left|\sumn{k+1} x_j\right|\leq \left|\sumn{k} x_j\right| + \left|x_{k+1}\right|= \sumn{k+1}\left|x_j\right|
+    \]
+    This completes the proof.
+\end{proof}
+
+\end{document}

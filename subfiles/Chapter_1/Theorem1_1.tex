@@ -1,0 +1,21 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Theorem 1.1}
+
+\begin{wts}
+    $A\cap(B\cup C) = (A\cap B)\cup (A\cap C)$. 
+\end{wts}
+
+\begin{proof}
+    We can use a chain of equivalences. Suppose that both members are not empty.
+\begin{align*}
+    x\in A\cap (B\cup C) &\iff x\in A\wedge x\in (B\cup C)\\
+    &\iff x\in A \text{ and } (x\in B \text{ or }x\in C)\\
+    &\iff (x\in A\wedge x\in B)\text{ or }(x\in A\wedge x\in C)\\
+    &\iff x\in (A\cap B)\cup (A\cap C)
+\end{align*}
+Now suppose one of the two members are empty. Then if the other member was not empty, 
+it would imply that the original member was not empty, and this means that the two sets must be equal.
+\end{proof}
+\end{document}

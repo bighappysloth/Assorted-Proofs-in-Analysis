@@ -1,0 +1,52 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Theorem 1.6}
+\begin{wts} %avoid empty lines
+   $f(f^{-1}B)=B$ if $f$ is a surjection, and $f^{-1}(f(B))=B$ if $f$ is an injection.
+\end{wts}
+We split this problem into two parts. We begin with the first assertion. Write $R = \{f(x): x\in A\}$.
+
+    \begin{lemma}
+        For every function $f: X\to Y$, $f(f^{-1}(B))\subseteq B$.
+    \end{lemma}
+    \begin{proof}
+    % Write Proof here
+        Use Q5a) onto the disjoint sets $f^{-1}(B\cap R)$ and $f^{-1}(B\cap R^c)$, then 
+        \[
+            f^{-1}(B) = f^{-1}(B\cap R)\cup f^{-1}(B\cap R^c)
+        \]
+        Now $f^{-1}(B\cap R^c)$ must be empty, since no $x\in A$ satisfies $f(x) \in B\cap R^c$. Hence $f^{-1}(B) = f^{-1}(B\cap R)$.
+        \begin{align*}
+            f(f^{-1}(B)) &= f(f^{-1}(B\cap R)\cup f^{-1}(B\cap R^c))\\
+            &= f(f^{-1}(B\cap R)) \cup f(f^{-1}(B\cap R^c))\\
+            &= f(f^{-1}(B\cap R))\\
+            &= \{f(x): x\in f^{-1}(B\cap R)\}\\
+            &= \{y: y\in (B\cap R)\}\\
+            &= B\cap R
+        \end{align*}
+        Where for the second last equality we used the fact that $f$ is always a surjection onto its range. Then $f(f^{-1}(B))=B\cap R\subseteq B$.
+    \end{proof}
+    \begin{remark}
+        If $f$ is a surjection, then its range $R = Y$, then $f(f^{-1}(B)) = B\cap Y = B$.
+    \end{remark}
+
+    \begin{lemma}
+        For every function $f: X\to Y$, $A\subseteq f^{-1}(f(A))$.
+    \end{lemma}
+    \begin{proof}
+        Write $f^{-1}\left(f(A)\right)$ as the disjoint union of $A\cap f^{-1}\left(f(A)\right)$ and $A^c\cap f^{-1}\left(f(A)\right)$. Then, we shall show that $f^{-1}\left(f(A)\right) = A$. For every $x\in A$,
+        \begin{align*}
+            f(x)\in f(A)\wedge x\in A&\iff x\in f^{-1}(f(A))\wedge x\in A\\
+            &\iff x\in A\cap \left(f^{-1}(f(A))\right)
+        \end{align*}
+        Hence $A\cap f^{-1}\left(f(A)\right)=A$, and $A\subseteq f^{-1}\left(f(A)\right)$
+        \begin{remark}
+            If $f$ is a injection, then for every $x\in A^c$, $f(x)\notin f(A)$, then $A^c\cap f^{-1}\left(f(A)\right)=\varnothing$, and
+            \[
+            f^{-1}\left(f(A)\right) = \left[A\cap f^{-1}\left(f(A)\right)\right] \cup \left[A^c\cap f^{-1}\left(f(A)\right)\right] = A
+            \]
+        \end{remark}
+    \end{proof}
+
+\end{document}

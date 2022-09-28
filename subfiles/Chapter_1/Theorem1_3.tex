@@ -1,0 +1,46 @@
+\documentclass[../../main.tex]{subfiles}
+
+\begin{document}
+\subsection{Theorem 1.3}
+\begin{wts} %avoid empty lines
+   % Write assertion here
+   $f: A \to B$ is a function, and $B_1, B_2\subseteq B$. Show that $f^{-1}$ preserves unions, intersections and complements.
+\end{wts}
+\begin{lemma}\label{lemma:inverse_preserves_unions}
+    $f^{-1}$ preserves unions.
+\end{lemma}
+\begin{proof}
+    % Write Proof here
+    Fix two subsets $B_1, B_2\subseteq B$, then 
+    \begin{align*}
+        f^{-1}(B_1\cup B_2) &= \{x\in A, f(x) \in B_1\cup B_2\}\\[2ex]
+        &= \{x\in A, f(x) \in B_1 \text{ or } f(x) \in B_2\}\\[2ex]
+        &= \{x\in f^{-1}(B_1) \text{ or } x\in f^{-1}(B_2)\}\\[2ex]
+        &= f^{-1}(B_1)\cup f^{-1}(B_2)
+    \end{align*}
+\end{proof} %avoid empty lines
+
+\begin{lemma}\label{lemma:inverse_preserves_complements}
+    $f^{-1}$ preserves complements.
+\end{lemma}
+\begin{proof}
+    For every $E\subseteq B$, 
+    \begin{align*}
+        f^{-1}(B\setminus E) &= \{x\in A:f(x)\in B\setminus E\}\\
+        &=\{x\in A, f(x)\in E^c\}\\
+        &= A\setminus f^{-1}(E)
+    \end{align*}
+\end{proof}
+
+\begin{lemma}\label{lemma:inverse_preserves_intersections}
+    $f^{-1}$ preserves intersections.
+\end{lemma}
+\begin{proof}
+    Now we wish to prove that $f^{-1}$ preserves intersections as well, for every pair of subsets, $B_1, B_2\subseteq B$. Write their intersection as $(B_1^c\cup B_2^c)^c$, apply Lemma \eqref{lemma:inverse_preserves_unions}, and take complements (then apply Lemma \eqref{lemma:inverse_preserves_complements})
+
+    \begin{align*}
+        f^{-1}\left((B_1^c\cup B_2^c)^c\right) &= (f^{-1}(B_1^c)\cup f^{-1}(B_2^c))^c\\
+        &=f^{-1}(B_1)\cap f^{-1}(B_2)
+    \end{align*}
+\end{proof}
+\end{document}

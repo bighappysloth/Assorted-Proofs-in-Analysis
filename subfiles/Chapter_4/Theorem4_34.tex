@@ -3,10 +3,50 @@
 \begin{document}
 \subsection{Theorem 4.34}
 \begin{wts}
-
+The set of points $A\subseteq\real^2$ is closed, where
+\[
+A = \{(x,y),\, y=ax^2 + bx + c\}
+\]
 \end{wts}
 \begin{proof}
-
+    It suffices to show that every accumulation point of $A$ is in $A$. So fix some $(x_0,y_0)\in \acc{A}$, and a $\varepsilon>0$, the following proof will be fussy, and we will divide it into 3 parts. By definition of $\acc{A}$, there exists some $(x_1,y_1)\in A$ such that
+    \begin{equation}\label{distance less than epsilon}
+        (x_0-x_1)^2 + (y_0-y_1)^2<\varepsilon^2
+    \end{equation}
+    From Equation \eqref{distance less than epsilon} we know that both $|x_0-x_1|^2$ and $|y_0-y_1|^2<\varepsilon^2$. If otherwise, the contradiction that immediately follows is obvious. From this, we can substitute $y_1 = ax^2_1 + bx_1 + c$, 
+    \begin{equation}\label{y1 equation}
+    \left|y_0 - (ax_1^2 + bx_1 + c)\right|^2<\varepsilon^2\implies \left|y_0 - (ax_1^2 + bx_1 + c)\right|<\varepsilon
+    \end{equation}
+    We multiply $|x_0 - x_1|<\varepsilon$ by $|b|$, and
+    \begin{equation}\label{x1 b equation}
+    |bx_1-bx_0|<\varepsilon|b|
+    \end{equation}
+    We wish to also bound $|x_1^2-x_0^2|$ by some multiple of $\varepsilon$. This is a bit more tricky than the rest. Indeed, suppose that $\varepsilon<1$, then
+    \begin{align*}
+        x_1^2 - x_0^2&=(x_1-x_0)\cdot(x_0+x_1)\\[1ex]
+        |x_1^2 - x_0^2|&=|x_1-x_0|\cdot|x_0+x_1|\\[1ex]
+        &\leq \varepsilon\biggl(|x_0| + |x_1-x_0|+|x_0-0|\biggr)\\[1ex]
+        &\leq \varepsilon(2|x_0|+\varepsilon)\\[1ex]
+        |x_1^2-x_0^2|&\leq \varepsilon(2|x_0|+1)
+    \end{align*}
+    Multiplying the last estimate by $|a|$ yields
+    \begin{equation}\label{x1 a equation}
+    |ax_0^2 - ax_1^2|\leq \varepsilon |a|(2|x_0|+1)
+    \end{equation}
+    Adding equations \eqref{x1 a equation} and \eqref{x1 b equation},
+    \begin{equation}\label{x1 a plus b equation}
+    \left|ax_1^2+bx_1+c - (ax_0^2 + bx_0 + c)\right|\leq \varepsilon\biggl(|a|(2|x_0|+1) + |b|\biggr)
+    \end{equation}
+    Finally, add \eqref{x1 a plus b equation} to \eqref{y1 equation},
+    \begin{multline}
+    |y_0-(ax_1^2+bx_1+c) + ax_1^2+bx_1+c - \\
+    (ax_0^2 + bx_0 + c)|\leq \varepsilon\biggl(|a|(2|x_0|+1) + |b|+1\biggr)
+    \end{multline}
+    Now for every $\delta>0$, we can simply choose some $\varepsilon<\min\left\{1,\delta\biggl(|a|(2|x_0|+1)+|b|+1\biggr)^{-1}\right\}$ such that
+    \[
+    |y_0 - (ax_0^2 + bx_0 + c)|<\delta
+    \]
+    Therefore $(x_0,y_0)\in A$ and $\acc{A}\subseteq A$. This completes the proof.
 \end{proof}
 
 \end{document}

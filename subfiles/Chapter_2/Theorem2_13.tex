@@ -1,12 +1,19 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.13}
-\begin{wts}
-
-\end{wts}
+\subsection{Every convergent real sequence is bounded}
+\begin{lemma}\label{lemma:convergent implies boundedness}
+    Every convergent sequence in $\real$ is bounded.
+\end{lemma}
 \begin{proof}
-
+    Fix $\{x_n\}_{n\geq 1}\to x$, also fix $\varepsilon=1>0$, then there exists some $N\geq 0$ so large with
+    \[
+    d(x_n,x)\leq 1\,\quad\forall n\geq N
+    \]
+    Then for every $n\geq N$ we have
+    \[
+    d(x_n,0)\leq d(x_n, x) + d(x,0)\leq 1 + d(x,0)
+    \]
+    Now for every $n\geq 1$, obviously $d(x_n,0)\leq 1 + d(x,0) + \sum_{k\leq N}d(x_k,0)$, and this establishes the Lemma.
 \end{proof}
-
 \end{document}

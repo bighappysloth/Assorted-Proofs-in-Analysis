@@ -2,11 +2,11 @@
 
 \begin{document}
 \subsection{Theorem 1.7}
-\begin{wts}
-
+\begin{wts}\label{theorem:piecewise bijective with disjoint ranges, implies bijective}
+For any $f: X\to Y$, if $A\subseteq X$ such that $f = f|_A + f|_{A^c}$, and $Y$ is the disjoint union of $f|_A(A)$ and $f|_{A^c}(A^c)$, and the restriction of $f$ onto $A$ and $A^c$ are bijections onto their direct images, then $f$ is a bijection. 
 \end{wts}
 \begin{proof}
+To prove injectivity, suppose we have $x_1 \neq x_2$, where we shall omit the trivial case of them both belonging to the same $A$ or $A^c$. Without loss of generality, suppose $x_1\in A$ and $x_2\in A^c$. Then by assumption $f(x_1) = f|_A(x)\in f|_A(A)$ which implies that $f(x_1)$ is not in $f|_{A^c}(A^c)$. So $f(x_1)\neq f(x_2)$.\\
 
-\end{proof}
-
-\end{document}
+Now to show surjectivity, simply take any $y\in Y$, and either $y\in f_A(A)$ or $y\in f_{A^c}(A^c)$, and since the two restrictions of $f$ onto the two sets are bijections, there exists a corresponding $x\in X$ which will satisfy. This completes the proof.
+\end{proof}\end{document}

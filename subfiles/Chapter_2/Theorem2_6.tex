@@ -1,12 +1,19 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.6}
-\begin{wts}
-
-\end{wts}
+\subsection{Lemma}
+\begin{lemma}\label{lemma:add_inf}
+    If $A$ and $B$ are non-empty bounded below subsets of $\mathbb{R}$, then $\inf A +\inf B = \inf(A+B)$
+\end{lemma}
 \begin{proof}
-
+        Define $w = \inf A$ and $q = \inf B$, then for every $(a,b)\in A\times B$
+    \[
+        w\leq a,\:q\leq b\implies w+q\leq a+b\implies w+q\leq A+B
+    \]
+    Now for every $\varepsilon/2>0$, there exists $(a,b)\in A\times B$ such that
+    \[
+    a\leq w+\varepsilon/2,\:b\leq q+\varepsilon/2\implies a+b\leq w + q + \varepsilon
+    \]
+    Therefore $\inf(A+B) = \inf(A) + \inf(B)$.
 \end{proof}
-
 \end{document}

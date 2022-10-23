@@ -1,12 +1,23 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.3}
-\begin{wts}
-
-\end{wts}
+\subsection{Lemma}
+\begin{lemma}\label{lemma:mult_with_inf}
+    If $A$ is a non-empty bounded below subset of $\mathbb{R}$, then for every  $c\geq 0, c(\inf A) = \inf cA$.
+\end{lemma}
 \begin{proof}
-
+    Let $w = \inf(A)$, then 
+    \[
+    cA = \{cx: x\in A\}
+    \]
+    Then for every $x\in A$
+    \[
+    w\leq x\implies cw \leq cx\implies cw\leq cA
+    \]
+    If $c=0$, then the equality is trivial since $cA = \{0\}$, if not, for every $\varepsilon/c>0$, there exists an $x\in A$ such that
+    \[
+    x\leq w+\dfrac{\varepsilon}{c}\implies cx\leq cw + \varepsilon
+    \]
+    This establishes Lemma \ref{lemma:mult_with_inf}.
 \end{proof}
-
 \end{document}

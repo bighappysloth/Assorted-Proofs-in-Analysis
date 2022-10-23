@@ -1,12 +1,24 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.2}
-\begin{wts}
-
-\end{wts}
+\subsection{Lemma}
+\begin{lemma}\label{lemma:mult_with_sup}
+    If $A$ is a non-empty bounded above subset of $\mathbb{R}$, then for every  $c\geq 0, c(\sup A) = \sup cA$
+\end{lemma}
 \begin{proof}
-
+    Let $s = \sup(A)$, then 
+    \[
+    cA = \{cx: x\in A\}
+    \]
+    Then for every $x\in A$
+    \[
+    x\leq s\implies cx \leq cs\implies cA\leq cs
+    \]
+    If $c=0$, then the equality is trivial since $cA = \{0\}$, if not, for every $\varepsilon/c>0$, there exists an $x\in A$ such that
+    \[
+    s-\dfrac{\varepsilon}{c}<x\implies cx - \varepsilon< cx
+    \]
+    This establishes the Lemma.
 \end{proof}
 
 \end{document}

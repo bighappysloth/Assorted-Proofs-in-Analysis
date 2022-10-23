@@ -1,12 +1,20 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.8}
-\begin{wts}
-
-\end{wts}
+\subsection{Super Triangle Inequality}
+\begin{lemma}[Super Triangle Inequality]\label{lemma:triangle inequality advanced}
+    For any $x,y,z\in X$, where $X$ denotes a metric space then,
+    \[
+    \biggl|d(x,z)-d(y,z)\biggr|\leq d(x,y)
+    \]
+\end{lemma}
 \begin{proof}
-
+    From the regular Triangle Inequality,
+    \begin{align*}
+        d(x,z)&\leq d(x,y) + d(y,z)\\
+        d(y,z)&\leq d(x,y) + d(x,z)
+    \end{align*}
+    The proof is complete upon isolating $d(x,y)$ in both equations.
 \end{proof}
 
 \end{document}

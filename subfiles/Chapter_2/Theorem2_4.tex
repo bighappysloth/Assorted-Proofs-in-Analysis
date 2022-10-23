@@ -1,12 +1,26 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.4}
-\begin{wts}
-
-\end{wts}
+\subsection{Lemma}
+\begin{lemma}\label{lemma:swap_sup_inf}
+    If $A$ is a non-empty bounded above subset of $\mathbb{R}$, then $(-1)(\sup A) = \inf (-1)A$.
+\end{lemma}
 \begin{proof}
-
+    Let $s=\sup(A)$, then
+    \[
+    (-1)A = \{-x: x\in A\}
+    \]
+    Evidently, for every $x\in A$
+    \[
+    x\leq s\implies -s\leq -x\implies -s\leq (-1)A
+    \]
+    Now fix any $\varepsilon>0$, then there exists an $x\in A$ such that
+    \[
+    s-\varepsilon\leq x\implies (-1)(s-\varepsilon)\geq -x\implies (-x)\leq (-s)+\varepsilon
+    \]
+    Thus establishes $\inf(-1)A=(-1)\sup(A)$.
 \end{proof}
-
+\begin{corollary}
+    $(-1)\inf(A) = \sup(-1)A$. The proof is trivial just replace $A$ by $(-1)A$.
+\end{corollary}
 \end{document}

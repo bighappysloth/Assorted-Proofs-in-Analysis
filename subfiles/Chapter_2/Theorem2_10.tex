@@ -1,12 +1,24 @@
 \documentclass[../../main.tex]{subfiles}
 
+
 \begin{document}
-\subsection{Theorem 2.10}
-\begin{wts}
-
-\end{wts}
+\providecommand{\xn}{\{x_n\}}
+\providecommand{\yn}{\{y_n\}}
+\subsection{Lemma}
+\begin{lemma}\label{lemma:sequence converges to product}
+    Let $\xn$, and $\yn$ be sequences of reals, and if $x_n\to x$ and $y_n\to y$, then $x_ny_n\to xy$.
+\end{lemma}
 \begin{proof}
-
+    Since $\xn$ and $\yn$ are convergent sequences, they must be bounded. So there exists some $M_1,M_2\in\nat^+$ with $|y|\leq M_1$ and $|x_n|\leq M_2$. Next,
+    \begin{align*}
+        |x_ny_n-xy|&=|x_n(y_n-y)+y(x_n-x)|\\
+        &\leq M_2|y_n-y| + M_1|x_n-x|
+    \end{align*}
+    Now fix an $\varepsilon>0$, and there exists $N_1$ and $N_2$ so large that 
+    \begin{align*}
+        |y_n-y|&<\varepsilon M_2^{-1}\\
+        |x_n-x|&<\varepsilon M_1^{-1}
+    \end{align*}
+    for all $n\geq N_1+N_2$. Therefore $|x_ny_n-xy|<\varepsilon$ eventually, and this completes the proof.
 \end{proof}
-
 \end{document}

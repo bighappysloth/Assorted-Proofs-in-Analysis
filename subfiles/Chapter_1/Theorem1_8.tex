@@ -2,11 +2,23 @@
 
 \begin{document}
 \subsection{Theorem 1.8}
-\begin{wts}
-
+\begin{wts}\label{theorem:piecewise bijections with disjoint ranges, inverse is the sum of piecewise inverses}
+Let $f\in B^A$ satisfy the hypothesis of the previous Theorem \ref{theorem:piecewise bijective with disjoint ranges, implies bijective}, so that $(f|_{A})^{-1}$ and $(f|_{A^c})^{-1}$ both exist, and $f|_A(A)\cap f|_{A^c}(A^c)=\varnothing$, then $f^{-1} = (f|_{A})^{-1} + (f|_{A^c})^{-1} = (f^{-1})|_{B_1} + (f^{-1})|_{B_2}$, where $f|_{A}(A) = B_1$, and $f|_{A^c}(A^c)=B_2$.
 \end{wts}
 \begin{proof}
-
+    Since $B_1$ and $B_2$ are disjoint, then fix any $y\in Y$. Without loss of generality, let us assume that $y\in B_1$. Then, $f^{-1}(y) = (f^{-1})|_{B_1}(y) = (f|_{A})^{-1}(y)$. This inverse is indeed well defined, since $f|_{A}$ is a bijection onto its range, then there exists a unique $x\in A$ such that applying $f$ on both sides yield
+    \[
+    f\left((f|_{A})^{-1}(y)\right) =f\circ (f|_A)^{-1} (y)= y
+    \]
+    In the same manner, fix an $x\in A$ such that $f(x)=f|_{A}(x)\in B_1$, then applying $(f|_{A})^{-1}$ on both sides
+    \[
+    (f|_A)^{-1}\left(f(x)\right) = (f|_{A})^{-1}\circ f (x)= x
+    \]
+    Therefore the inverse of $f$ can be written piecewise on two disjoint domains as follows.
+    \[
+    f^{-1} = f^{-1}|_{B_1} + f^{-1}_{B_2}
+    \]
 \end{proof}
+\remark We adopt a slight abuse of notation with the 'restrictions' onto $f$, but they should be interpreted as piecewise functions. $f|_A + f|_{A^c}$ is equal to $f|_{A}\chi_A + f|_{A^c}\chi_{A^c}$ where $\chi$ is the indicator function.\\
 
 \end{document}

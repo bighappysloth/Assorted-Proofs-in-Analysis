@@ -1,12 +1,14 @@
 \documentclass[../../main.tex]{subfiles}
 
+
 \begin{document}
-\subsection{Theorem 2.9}
-\begin{wts}
-
-\end{wts}
+\subsection{Lemma}
+\providecommand{\xn}{\{x_n\}}
+\providecommand{\yn}{\{y_n\}}
+\begin{lemma}\label{lemma:sequence converges to sum}
+    Let $\xn$, and $\yn$ be sequences of reals, and if $x_n\to x$ and $y_n\to y$, then $x_n+y_n\to x+y$.
+\end{lemma}
 \begin{proof}
-
+    Fix an $\varepsilon>0$, cut our $\varepsilon$ into half, so that $\xn$, and $\yn$ lies in a half-$\varepsilon$ ball about their limits eventually. Then, take the triangle inequality, since the above estimate holds eventually, $|x_n+y_n-(x+y)|<\varepsilon$ eventually as well.
 \end{proof}
-
 \end{document}

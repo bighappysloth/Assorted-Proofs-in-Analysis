@@ -1,12 +1,28 @@
 \documentclass[../../main.tex]{subfiles}
 
+
 \begin{document}
-\subsection{Theorem 2.11}
-\begin{wts}
-
-\end{wts}
+\providecommand{\xn}{\{x_n\}}
+\providecommand{\yn}{\{y_n\}}
+\subsection{Lemma}
+\begin{lemma}\label{lemma:sequence converges to inverse}
+    If $\xn\in\real$, $x_n\to x\neq 0$, then $(x_n)^{-1}\to x^{-1}$.
+\end{lemma}
 \begin{proof}
-
+    If $x_n\to x\neq 0$, then $x_n$ lies in a ball about $x$ of radius $|x|2^{-1}$ eventually, so $x_nx\neq 0$. Moreover, using the fact that $x_n$ lies in said ball, $x_nx\geq 0$ eventually, and
+    \begin{align*}
+        |x_n-x|\leq |x|2^{-1}&\iff |x_nx - x^2|\leq |x|^22^{-1}\\[1ex]
+        &\iff \biggl||x_nx|-|x|^2\biggr|\leq |x|^22^{-1}\\[1ex]
+        &\iff |x|^22^{-1}\leq |x_nx|\leq 3|x|^22^{-1}\\[1ex]
+        &\implies |x_nx|^{-1}\leq (|x^2|2^{-1})^{-1}=M^{-1}
+    \end{align*}
+    Now for every $M\varepsilon> 0$, the following must hold eventually,
+    \[
+    |x_n-x|M^{-1}<\varepsilon \implies \dfrac{|x_n-x|}{|x_nx|}\leq \dfrac{|x_n-x|}{M}<\varepsilon
+    \]
+    Therefore,
+    \[
+    \left|\dfrac{1}{x_n}-\dfrac{1}{x}\right|<\varepsilon\to 0
+    \]
 \end{proof}
-
 \end{document}

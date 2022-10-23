@@ -1,12 +1,37 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.12}
-\begin{wts}
+\providecommand{\pone}{P(\forall n\geq 0)}
+\providecommand{\ptwo}{P(\forall^\infty n)}
+\providecommand{\pthree}{P(\exists^\infty n)}
+\subsection{Lemma}
+\begin{lemma}\label{lemma:sequence hierarchy}
+If $P$ is a proposition on the space of all sequences (onto, into? what is the right word) $X$, denoted by
+\[
+\Omega = \{x_n:\nat\to X\}
+\]
+And if
+\begin{itemize}
+    \item $P(\forall n\geq 0) = \left\{x_n\in\Omega,\: \forall n\geq 0, P(x_n)  \right\}$
+    \item $P(\forall^\infty\, n) = \left\{x_n\in\Omega,\: \exists N,\:\forall n\geq N, P(x_n)  \right\}$
+    \item $P(\exists^\infty\, n) = \left\{x_n\in\Omega,\: \forall N,\:\exists n\geq N, P(x_n)  \right\}$
+\end{itemize}
 
-\end{wts}
+
+Then
+\[
+P(\forall n\geq 0)\subseteq P(\forall^\infty n)\subseteq P(\exists^\infty n)\subseteq \Omega
+\]
+\end{lemma}
 \begin{proof}
-
+    Suppose that $x_n\in \pone$, then $P(x_n)$ eventually is trivial, so 
+    \[
+    \pone\subseteq\ptwo
+    \]
+    Now fix $x_n\in\ptwo$, this induces some $N\in\nat$ such that for every $n\geq N$ means that $P(x_n)$. To show that $P(x_n)$ frequently, notice for every $M\in\nat$ we can choose some $n = M + N$ such that $P(x_n)$ holds, so
+    \[
+    \ptwo\subseteq\pthree
+    \]
+    The last inclusion is obvious as all three are subsets of $\Omega$.
 \end{proof}
-
 \end{document}

@@ -1,12 +1,36 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.14}
-\begin{wts}
-
-\end{wts}
+\providecommand{\xn}{\{x_n\}}
+\subsection{Lemma}
+\begin{lemma}\label{lemma:alternating sequence, that does not vanish eventually diverges}
+    If $\xn$ is a sequence in $\mathbb{R}$, and if $x_{n+1}/x_n<0$ eventually, and if $|x_n|\to a>0$, then $x_n$ diverges.
+\end{lemma}
 \begin{proof}
-
+    Using the fact that $|x_n|\to a$, and fix $\varepsilon=a/2>0$, then 
+    \[
+        \biggl||x_n|-a\biggr|<a/2 \iff a/2<|x_n|<3a/2
+    \]
+    Using the fact that $x_{n+1}/x_n<0$ eventually, 
+    \begin{itemize}
+        \item either $-x_{n+1}=|x_{n+1}|$,
+        \item or $|-x_n+x_{n+1}|=|x_n|+|x_{n+1}|$,
+    \end{itemize}
+    We have,
+    \begin{align}
+        d(x_n,x_{n+1})&=\biggl|x_n-x_{n+1}\biggr|\nonumber\\
+        &=|x_n|+|x_{n+1}|\nonumber\\
+        &>a/2+a/2\nonumber\\
+        &>a\label{inequality 1}
+    \end{align}
+    Now suppose that $x_n\to x$ for some $x\in\mathbb{R}$, then for any $\varepsilon=a/2>0$, we must have
+    \[
+        d(x_n,x_{n+1})\leq d(x_n,x) + d(x_{n+1},x)
+    \]
+    Using Equation \eqref{inequality 1}, we get
+    \[
+        a<a/2+d(x_{n+1},x)\implies a/2<d(x_{n+1},x)<a/2
+    \]
+    Therefore $x_n\not\to x$, and this completes the proof.
 \end{proof}
-
 \end{document}

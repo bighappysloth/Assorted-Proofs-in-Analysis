@@ -1,12 +1,20 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.7}
-\begin{wts}
-
-\end{wts}
+\subsection{Lemma}
+\begin{lemma}\label{lemma:contained_sup_inf}
+    If $A$ is a non-empty bounded subset of $\mathbb{R}$, if $s$ and $t$ are upper and lower bounds of $A$, and if $s\in A$ then $s=\sup A$. Also if $t\in A$, then $t = \inf A$
+\end{lemma}
 \begin{proof}
-
+    Suppose that $s$ and $s'$ are upper bounds of $A$, then
+    \[
+    s\in A\implies s\leq s'
+    \]
+    So $s=\sup A$, now if $t$ and $t'$ are lower bounds of $A$, then
+    \[
+    t\in A\implies t'\leq t
+    \]
+    This completes the proof.
 \end{proof}
-
+\remark We only require $A$ to be bounded above for the supremum part of the proof, and $A$ to be bounded below for the infimum of the proof. We omit the caveat because it is a needless distraction.
 \end{document}

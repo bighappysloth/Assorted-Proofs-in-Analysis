@@ -1,12 +1,20 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.5}
-\begin{wts}
-
-\end{wts}
+\subsection{Lemma}
+\begin{lemma}\label{lemma:add_sup}
+    If $A$ and $B$ are non-empty bounded above subsets of $\mathbb{R}$, then $\sup A +\sup B = \sup(A+B)$
+\end{lemma}
 \begin{proof}
-
+    Define $s = \sup A$ and $t = \sup B$, then for every $(a,b)\in A\times B$
+    \[
+        a\leq s,\:b\leq t\implies a+b\leq s+t\implies A+B\leq s+t
+    \]
+    Now for every $\varepsilon/2>0$, there exists $(a,b)\in A\times B$ such that
+    \[
+    a\leq s-\varepsilon/2,\:b\leq t-\varepsilon/2\implies s+t-\varepsilon\leq a+b
+    \]
+    Therefore $\sup(A+B) = \sup(A) + \sup(B)$.
 \end{proof}
 
 \end{document}

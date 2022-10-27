@@ -1,12 +1,18 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 3.13}
+\subsection{Conjecture about Metric Spaces?}
 \begin{wts}
-
+Let $A$ be a closed subset of a metric space $(X,d)$, for every $x$, $y$ in $X$, we have $d(x,A)\leq d(x,y) + d(y+A)$, where $d(x,A) = \inf_{p\in A}d(x,p)$.
 \end{wts}
 \begin{proof}
-
+\begin{align*}
+\forall p\in A, d(x,A)&\leq d(x,p)\\
+d(x,p)&\leq d(x,y) + d(p,y)\\
+d(x,A)&\leq d(x,y) + d(p,y)\\
+d(x,A)&\leq \inf_{p\in A}\left(d(x,y) + d(p,y)\right)\\
+d(x,A)&\leq d(x,y) + d(y,A)\\
+\end{align*}
 \end{proof}
 
 \end{document}

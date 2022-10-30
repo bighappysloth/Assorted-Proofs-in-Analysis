@@ -1,12 +1,63 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.21}
+\providecommand{\xn}{\{x_n\}}
+\subsection{Eventual Behaviour of Sequences}
 \begin{wts}
-
+    Let $\xn$ be a sequence in an arbitrary space $X$. We define the $m$-tail of the sequence, 
+    \[
+    E_m = \{x_n,\,n\geq m\}
+    \]
+    If $A\subseteq X$ is any set, the following are equivalent.
+    \begin{enumalpha}
+        \item $x_n\in A$ eventually,\label{claim a}
+        \item $E_m\subseteq A$ eventually, (as $m\to\infty$),\label{claim b}
+        \item $A^c\cap E_m=\varnothing$ eventually, (as $m\to\infty$),\label{claim c}
+        \item $A^c\cap \{x_n\}$ is finite,\label{claim d}
+        \item it is false that $x_n\in A^c$ frequently,\label{claim e}
+        \item no subsequence $x_{n_k}$ of $x_n$ can lie in $A^c$ eventually, (as $k\to\infty$)\label{claim f}
+    \end{enumalpha}
 \end{wts}
 \begin{proof}
-
+    Suppose \ref{claim a} holds, then $\{x_{n\geq N}\}\subseteq A$. So $E_N\subseteq A$, and for every $m\geq N$, $E_m\subseteq E_N\subseteq A$, so \ref{claim a} $\implies$ \ref{claim b}.\\
+    
+    Suppose \ref{claim b} holds, then 
+    \[
+    E_m\subseteq A\iff A^c\cap E_m=\varnothing,\quad\text{ eventually}
+    \]
+    Hence \ref{claim c} follows.\\
+    
+    To show \ref{claim c} $\implies$ \ref{claim d}, we assume \ref{claim d} is false. So $A^c\cap\{x_n\}$ is infinite, and denote
+    \[
+    \mathcal{N}=\biggl\{n\in\nat^+,\, x_n\in A^c\biggr\}
+    \]
+    is an unbounded set. Now choose any $m\in\nat^+$, so this $m$ must not be an upper-bound of $\mathcal{N}$ (otherwise $\mathcal{N}$ would be bounded above, and therefore finite). For this $m$, there exists an $n>m'$, where $n\in\mathcal{N}$, with
+    \[
+    x_n\in A^c\cap E_m\implies A^c\cap E_m\neq\varnothing
+    \]
+    This holds for every $m$ (we have proven a negation that is stronger than the negation of \ref{claim c}), and \ref{claim c} is invalid. Therefore \ref{claim c} $\implies$ \ref{claim d}.\\
+    
+    Suppose now \ref{claim d} holds. Since $A^c\cap\{x_n\}$ is finite, there exists an $N\in\nat^+$ where 
+    \[
+    N=\max\biggl\{n\in\nat^+,\,x_n\in A^c\biggr\}+1
+    \]
+    for every $n\geq N$, we have $x_n\notin A^c$. So $x_n\notin A^c$ eventually $\iff$ the claim that  $x_n$ is in $A^c$ frequently is false, and \ref{claim e} follows.\\
+    
+    Now suppose \ref{claim e}, unboxing the quantifiers, reads
+    \[
+    \neg\biggl(\forall N\in\nat^+,\,\exists n\geq N,\,x_n\in A^c\biggr)\iff \exists N\in\nat^+,\,\forall n\geq N,\, x_n\in A
+    \]
+    The right member is equivalent to claim \ref{claim a}.\\
+    
+    To show \ref{claim f} is indeed equivalent with the rest. Suppose claim \ref{claim d} does not hold. So $A^c\cap \{x_n\}$ is infinite. Let $\mathcal{K}=\{n\in\nat^+,\,x_n\in A^c\}$ is an infinite set of natural numbers, and is therefore unbounded above. Following the argument within \ref{claim c} $\implies$ \ref{claim d}, we can construct an increasing sequence of naturals $n_1<n_2<\ldots$ such that $n_k\in \mathcal{K}$, and
+    \[
+    \{x_{n_k}\}\subseteq A^c
+    \]
+    This proves $\neg$\ref{claim d}$\implies\neg$\ref{claim f}. To show the converse, suppose that $x_{n_k}\in A^c$ eventually, then the set of naturals (also denoted by $\mathcal{K}$), 
+    \[
+    \mathcal{K}=\biggl\{k\in\nat^+,\,x_{n_k}\in A^c\biggr\}
+    \]
+    is an infinite set, so \ref{claim d} is false. This completes the proof.
 \end{proof}
 
 \end{document}

@@ -1,12 +1,19 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.19}
-\begin{wts}
-
+\subsection{Eventually, frequently, and subsequences}
+\begin{wts}\label{lemma:eventually frequently and subsequences}
+    Let $P$ be a subset of $\real$, and if $\{x_n\}$ is any sequence in $\real$, then
+    \begin{enumalpha}
+        \item If $x_n\in P$ eventually, if $x_{n_k}$ is a subsequence of $x_n$, then $x_{n_k}\in P$ eventually as $k\to\infty$.
+        \item If $x_{n_k}$ is a subsequence of $x_n$, and if $x_{n_k}\in P$ eventually, then $x_n\in P$ frequently.
+    \end{enumalpha}
 \end{wts}
-\begin{proof}
-
+\begin{proof}[Proof of Part A]
+    Suppose $x_n\in P$ eventually, so there exists a large $N\in\nat^+$, and fix a subsequence $x_{n_k}$ of $x_n$, then for every $k\geq N\implies n_k\geq k\geq N$, we have $x_{n_k}\in P$, so $x_{n_k}\in P$ eventually.\\
+\end{proof}
+\begin{proof}[Proof of Part B]
+    Suppose $\{x_{n_k}\}$ is a subsequence of $\{x_n\}$, and that $x_{n_k}\in P$ eventually, so there exists a large $K$ such that $k\geq K\implies x_{n_k}\in P$. Then for every $N\in\nat^+$ we can find an $m\geq N + n_K$ such that $m=n_k$ for some $k\geq 1$ (so that $x_m = x_{n_k}$), and $x_m\in P$. So $x_n\in P$ frequently.
 \end{proof}
 
 \end{document}

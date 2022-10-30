@@ -1,12 +1,24 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.18}
-\begin{wts}
-
+\providecommand{\xn}{\{x_n\}}
+\subsection{Tail behaviour of a sequence}
+\begin{wts}\label{lemma:tail behaviour of a sequence}
+    Let $\xn$ be a sequence in $\real$, and let $x\in\real$. Fix any $\varepsilon>0$, and eventually for $n\geq N$, $m\geq M$, $M,N\in\nat^+$,
+    \[x_n\in V_\varepsilon(x)\iff E_m\subseteq V_\varepsilon(x)\]
 \end{wts}
 \begin{proof}
-
+    Suppose $x_n\in V_\varepsilon(x)$ eventually, so there exists an $N\in\nat^+$ such that
+    \[
+    x_{n\geq N}\in V_\varepsilon(x)\implies E_N\subseteq V_\varepsilon(x)
+    \]
+    and $E_n\subseteq E_N\subseteq V_\varepsilon(x)$ for every $n\geq N$, so $E_m\subseteq V_\varepsilon(x)$ eventually.\\
+    
+    If $E_m\subseteq V_\varepsilon(x)$ eventually, then there exists an $M$ such that $E_M\subseteq V_\varepsilon(x)$, and for every $n\geq M$
+    \[
+    x_n\in E_M\subseteq V_\varepsilon(x)
+    \]
+    so that $x_n\in V_\varepsilon(x)$ eventually.
 \end{proof}
 
 \end{document}

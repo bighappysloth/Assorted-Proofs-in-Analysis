@@ -1,12 +1,64 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.20}
+\subsection{Closed and Totally Bounded equivalent to Heine Borel}
+Let $(X,d)$ be a metric space, and $E\subseteq X$.
 \begin{wts}
-
+    If $E$ is closed and totally bounded, then every sequence in $E$ has a convergent subsequence.
 \end{wts}
-\begin{proof}
-
+\begin{proof}[Proof of Part A]
+    Fix a sequence $\{x_n\}\subseteq E$, and if $E$ is totally bounded, there exists a finite cover of open balls of radius $2^{-1}$. One of these covers must contain infinitely many points of $x_n$. 
+    \begin{itemize}
+        \item Choose one ball of radius $2^{-1}$ that contains infinitely many $x_n$, and call it $B_1$, and define
+        \[
+        N_1 = \{n\in\nat^+,\, x_n\in B_1\}
+        \]
+        \item Suppose that $B_1,\ldots B_{k-1}$ are balls of radii $2^{-1},\ldots,2^{1-k}$ that contain infinitely many $x_n$ in $E,\ldots E\cap B_{k-2}$, then choose $B_k$ as follows. If a finite family of open balls of radius $2^{-k}$ covers $E$, it must cover $E\cap B^{k-1}$. And one of these balls, must contain infinitely many points of $\{x_n\}\cap E\cap B^{k-1}$. Otherwise $E\cap B^{k-1}$ would only contain finitely many points in $\{x_n\}$, a contradiction.
+        \item Choose $B_k$ accordingly, and denote $N_k = \{n\in\nat^+,\, x_n\in B_k\}$. Where each $N_j$ is an infinite set.
+        \item Use the Well Ordering Property of the naturals to obtain our subsequence in $k$ such that for $k=1$
+        \[
+        n_1 = \operatorname{least}\biggl\{n\in N_1\biggr\}
+        \]
+        \item A simple induction on $k$ yields
+        \[
+        n_k = \operatorname{least}\biggl\{n\in N_k\setminus \bigcup^{k-1}_{j=1}N_j\biggr\}
+        \]
+        \item Clearly, $n_1<n_2<\ldots$. Furthermore, suppose that $c_1, c_2$ are centers of balls of radii $r_1, r_2$ in an arbitrary metric space. We claim that if $r_1 + r_2< d(c_1,c_2)$, then $V_{r_1}(c_1)\cap V_{r_2}(c_2)=\varnothing$. This simple proof is left as an exercise. We now take the contrapositive of the previous statement. Since each $B_k$ contains points in $B_{k-1}$, if $B_k = V_{r_k}(c_k)$, we must have
+        \[
+        d(c_k,c_{k-1})\leq r_k + r_{k-1}
+        \]
+        \item Now let $j$ and $k$ be arbitrary numbers in $\nat^+$. Then
+        \[
+        d(x_{n_j},x_{n_k})\leq d(c_{j},c_{k}) + d(x_{n_j}, c_j) + d(x_{n_k}, c_k)
+        \]
+        A moment's thought will show that, if $j<k$
+        \[
+        d(x_{n_j},x_{n_k})\leq \biggl(\sum_{m=j}^k2^{-m}\biggr) + 2^{-j} + 2^{-k}\leq 2^{2-j}
+        \]
+        \item and for every $\varepsilon>0$ there exists a $K$ so large that $\varepsilon<2^{2-K}$, and for every $k>j>K$ we have
+        \[
+        d(x_{n_j}, x_{n_k})\leq 2^{2-K}<\varepsilon
+        \]
+        The subsequence is Cauchy, and converges to some limit in $E$.
+    \end{itemize}
 \end{proof}
-
+\begin{wts}
+    If every sequence in $E$ has a convergent subsequence, then $E$ is closed and totally bounded.
+\end{wts}
+\begin{proof}[Proof of Part B]
+    Suppose $E$ is not closed, then there exists a Cauchy sequence in $\{x_n\}$ that has no limit in $E$, and suppose that it has a convergent subsequence in $x_{n_k}\to x\in E$. For every $\varepsilon/2>0$, if we agree to define the tail of the sequence, $E_m = \{x_{n_m},\, m\in \nat^+\}$, then 
+    \[
+    E_m\subseteq V_{\varepsilon/2}(x)
+    \]
+    But $\{x_n\}$ is Cauchy, so $d(x_j,x_k)<\varepsilon/2$ eventually, and choose $j,k\geq n_m$ and $k=n_{m'}$ for some $m'\geq m$,
+    \[
+    d(x_j, x)\leq d(x_j,x_k) +d(x_k,x) <\varepsilon
+    \]
+    So $E$ must be closed. Let us now assume $E$ is not totally bounded, so there exists an $r>0$ where no finite covering of $E$ exists. And we can construct a sequence that has no convergent subsequence.
+    \begin{enumerate}
+        \item Since there are infinitely many balls of radius $\varepsilon$ that cover $E$, let $\{B_\alpha\}$ be the family of such balls, where $\alpha\in A$.
+        \item Since we can always find infinitely many balls whose centers are at least $2\varepsilon$ apart (by invoking the axiom of countable choice). We can construct a sequence $\{x_n\}$ such that $d(x_n,x_{n+k})>k\varepsilon>0$.
+        \item The above sequence can have no subsequential limit in $E$.
+    \end{enumerate}
+\end{proof}
 \end{document}

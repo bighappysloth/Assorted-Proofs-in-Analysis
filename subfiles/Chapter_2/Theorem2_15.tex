@@ -1,12 +1,15 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.15}
-\begin{wts}
-
+\subsection{sup, inf with subsets}
+\begin{wts}\label{lemma:sup inf with subsets}
+    If $A\subseteq B\subseteq \real$, then $\sup(A)\leq \sup(B)$, and $\inf(A)\geq \inf(B)$.
 \end{wts}
 \begin{proof}
-
+    If we allow for the $\sup$ and $\inf$ of $A$ and $B$ to take on symbols in the extended reals. Then, $\sup(B)$ is an upper-bound for $A$ and $\inf(B)$ is a lower-bound for $A$, therefore
+    \[
+    \sup(A)\leq \sup(B),\quad \inf(A)\geq \inf(B)
+    \]
 \end{proof}
 
 \end{document}

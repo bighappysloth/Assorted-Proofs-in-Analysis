@@ -1,12 +1,30 @@
 \documentclass[../../main.tex]{subfiles}
 
 \begin{document}
-\subsection{Theorem 2.17}
-\begin{wts}
-
+\subsection{$\sup A\leq \inf B\iff a\leq b$ for every $a\in A$, $b\in B$}
+\begin{wts}\label{lemma: a leq b for every a and b}
+    If $A$, $B$ are non-empty subsets of $\real$,
+    \[
+    \sup A\leq \inf B \iff \forall a\in A,\,\forall b\in B,\, a\leq b
+    \]
 \end{wts}
 \begin{proof}
-
+    Suppose that $\sup A\leq \inf B$, then for every $a\in A$, and we can safely assume that both $\sup A$ and $\inf B$ are finite (see remark),
+    \[
+    a\leq \sup A\leq \inf B
+    \]
+    so that $a$ is a lower bound for $B$, but this is equivalent to saying that $a\leq b$ for every $b\in B$.\\
+    
+    Now suppose that for every $a,b\in A,B$, $a\leq b$. Then every single $b\in B$ is an upper bound for the set $A$, therefore
+    \[
+    \forall b\in B,\, \sup A\leq b\implies \sup A\leq \inf B
+    \]
+    where the last estimate is due to $\sup A$ being a lower bound for $B$.
 \end{proof}
+\begin{remark}
+    If $\sup A = +\infty$, then $\inf B = +\infty$, this can only happen if $B=\varnothing$, so $\sup A = +\infty$ is impossible, so is $\inf B = -\infty$. (We assume that $A$ and $B$ are subsets of $\real$, and not of $\cl{\real}$).\\
+    
+    Further, if $\sup A = -\infty$, then either $A=\{-\infty\}$ which is not a subset of $\real$, or $A=\varnothing$, which is again impossible.
+\end{remark}
 
 \end{document}

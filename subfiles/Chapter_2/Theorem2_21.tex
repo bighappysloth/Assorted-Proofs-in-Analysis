@@ -3,31 +3,32 @@
 \begin{document}
 \providecommand{\xn}{\{x_n\}}
 \subsection{Eventual Behaviour of Sequences}
-\begin{wts}
+\begin{wts}\label{theorem:eventual behaviour of sequences}
     Let $\xn$ be a sequence in an arbitrary space $X$. We define the $m$-tail of the sequence, 
     \[
     E_m = \{x_n,\,n\geq m\}
     \]
     If $A\subseteq X$ is any set, the following are equivalent.
     \begin{enumalpha}
-        \item $x_n\in A$ eventually,\label{claim a}
-        \item $E_m\subseteq A$ eventually, (as $m\to\infty$),\label{claim b}
-        \item $A^c\cap E_m=\varnothing$ eventually, (as $m\to\infty$),\label{claim c}
-        \item $A^c\cap \{x_n\}$ is finite,\label{claim d}
-        \item it is false that $x_n\in A^c$ frequently,\label{claim e}
-        \item no subsequence $x_{n_k}$ of $x_n$ can lie in $A^c$ eventually, (as $k\to\infty$)\label{claim f}
+        \item $x_n\in A$ eventually,\label{claim_ea}
+        \item $E_m\subseteq A$ eventually, (as $m\to\infty$),\label{claim_eb}
+        \item $A^c\cap E_m=\varnothing$ eventually, (as $m\to\infty$),\label{claim_ec}
+        \item $A^c\cap \{x_n\}$ is finite,\label{claim_ed}
+        \item it is false that $x_n\in A^c$ frequently,\label{claim_ee}
+        \item no subsequence $x_{n_k}$ of $x_n$ can lie in $A^c$ eventually, (as $k\to\infty$),\label{claim_ef}
+        \item every subsequence of $x_n$ can be found frequently in $A$\label{claim_eg}
     \end{enumalpha}
 \end{wts}
 \begin{proof}
-    Suppose \ref{claim a} holds, then $\{x_{n\geq N}\}\subseteq A$. So $E_N\subseteq A$, and for every $m\geq N$, $E_m\subseteq E_N\subseteq A$, so \ref{claim a} $\implies$ \ref{claim b}.\\
+    Suppose \ref{claim_ea} holds, then $\{x_{n\geq N}\}\subseteq A$. So $E_N\subseteq A$, and for every $m\geq N$, $E_m\subseteq E_N\subseteq A$, so \ref{claim_ea} $\implies$ \ref{claim_eb}.\\
     
-    Suppose \ref{claim b} holds, then 
+    Suppose \ref{claim_eb} holds, then 
     \[
     E_m\subseteq A\iff A^c\cap E_m=\varnothing,\quad\text{ eventually}
     \]
-    Hence \ref{claim c} follows.\\
+    Hence \ref{claim_ec} follows.\\
     
-    To show \ref{claim c} $\implies$ \ref{claim d}, we assume \ref{claim d} is false. So $A^c\cap\{x_n\}$ is infinite, and denote
+    To show \ref{claim_ec} $\implies$ \ref{claim_ed}, we assume \ref{claim_ed} is false. So $A^c\cap\{x_n\}$ is infinite, and denote
     \[
     \mathcal{N}=\biggl\{n\in\nat^+,\, x_n\in A^c\biggr\}
     \]
@@ -35,33 +36,59 @@
     \[
     x_n\in A^c\cap E_m\implies A^c\cap E_m\neq\varnothing
     \]
-    This holds for every $m$ (we have proven a negation that is stronger than the negation of \ref{claim c}), and \ref{claim c} is invalid. Therefore \ref{claim c} $\implies$ \ref{claim d}.\\
+    This holds for every $m$ (we have proven a negation that is stronger than the negation of \ref{claim_ec}), and \ref{claim_ec} is invalid. Therefore \ref{claim_ec} $\implies$ \ref{claim_ed}.\\
     
-    Suppose now \ref{claim d} holds. Since $A^c\cap\{x_n\}$ is finite, there exists an $N\in\nat^+$ where 
+    Suppose now \ref{claim_ed} holds. Since $A^c\cap\{x_n\}$ is finite, there exists an $N\in\nat^+$ where 
     \[
     N=\max\biggl\{n\in\nat^+,\,x_n\in A^c\biggr\}+1
     \]
-    for every $n\geq N$, we have $x_n\notin A^c$. So $x_n\notin A^c$ eventually $\iff$ the claim that  $x_n$ is in $A^c$ frequently is false, and \ref{claim e} follows.\\
+    for every $n\geq N$, we have $x_n\notin A^c$. So $x_n\notin A^c$ eventually $\iff$ the claim that  $x_n$ is in $A^c$ frequently is false, and \ref{claim_ee} follows.\\
     
-    Now suppose \ref{claim e}, unboxing the quantifiers, reads
+    Now suppose \ref{claim_ee}, unboxing the quantifiers, reads
     \[
     \neg\biggl(\forall N\in\nat^+,\,\exists n\geq N,\,x_n\in A^c\biggr)\iff \exists N\in\nat^+,\,\forall n\geq N,\, x_n\in A
     \]
-    The right member is equivalent to claim \ref{claim a}.\\
+    The right member is equivalent to claim \ref{claim_ea}.\\
     
-    To show \ref{claim f} is indeed equivalent with the rest. Suppose claim \ref{claim d} does not hold. So $A^c\cap \{x_n\}$ is infinite. Let $\mathcal{K}=\{n\in\nat^+,\,x_n\in A^c\}$ is an infinite set of natural numbers, and is therefore unbounded above. Following the argument within \ref{claim c} $\implies$ \ref{claim d}, we can construct an increasing sequence of naturals $n_1<n_2<\ldots$ such that $n_k\in \mathcal{K}$, and
+    To show \ref{claim_ef} is indeed equivalent with the rest. Suppose claim \ref{claim_ed} does not hold. So $A^c\cap \{x_n\}$ is infinite. Let $\mathcal{K}=\{n\in\nat^+,\,x_n\in A^c\}$ is an infinite set of natural numbers, and is therefore unbounded above. Following the argument within \ref{claim_ec} $\implies$ \ref{claim_ed}, we can construct an increasing sequence of naturals $n_1<n_2<\ldots$ such that $n_k\in \mathcal{K}$, and
     \[
     \{x_{n_k}\}\subseteq A^c
     \]
-    This proves $\neg$\ref{claim d}$\implies\neg$\ref{claim f}. To show the converse, suppose that $x_{n_k}\in A^c$ eventually, then the set of naturals (also denoted by $\mathcal{K}$), 
+    This proves $\neg$\ref{claim_ed}$\implies\neg$\ref{claim_ef}. To show the converse, suppose that $x_{n_k}\in A^c$ eventually, then the set of naturals (also denoted by $\mathcal{K}$), 
     \[
     \mathcal{K}=\biggl\{k\in\nat^+,\,x_{n_k}\in A^c\biggr\}
     \]
-    is an infinite set, so \ref{claim d} is false. This completes the proof.
+    is an infinite set, so \ref{claim_ed} is false. \\
+    
+    Lastly, to show $\ref{claim_ef}\iff\ref{claim_eg}$, we unbox the quantifiers
+    \begin{align*}
+    \ref{claim_eg}&\iff \forall \{x_{n_k}\}\subseteq x_n, \neg\biggl(\exists K\in\nat^+,\,\forall k\geq K,\, x_{n_k}\in A^c\biggr)\\
+    &\iff \forall \{x_{n_k}\}\subseteq x_n,\forall k\in\nat^+,\,\exists k\geq K,\, x_{n_k}\in A^c\\
+    &\iff \ref{claim_ef}
+    \end{align*}
+    This completes the proof.
 \end{proof}
-
+\newpage
+\subsection{Frequent Behaviour of Sequences}
+\begin{wts}\label{theorem:frequent behaviour of sequences}
+    Let $\xn$ be a sequence in an arbitrary space $X$. Let $E_m$ be the $m$-tail of the sequence as usual. If $A\subseteq X$ is any set, the following are equivalent.
+    \begin{enumalpha}
+        \item $x_n\in A$ frequently,\label{claim_fa}
+        \item it is false that $x_n\in A^c$ eventually,\label{claim_fb}
+        \item $A\cap E_m$ is infinite, for every $m\geq 1$,\label{claim_fc}
+        \item there exists a subsequence $x_{n_k}$ of $x_n$ that lies in $A$ eventually,\label{claim_fd}
+    \end{enumalpha}
+\end{wts}
+\begin{proof}
+    Notice that \ref{claim_fa} is equivalent to the negation of Theorem \ref{theorem:eventual behaviour of sequences}a, but with $A$ taking the place of $A^c$ (within Theorem \ref{theorem:eventual behaviour of sequences}). \\
+    
+    It immediately follows that
+    \[
+    \ref{claim_fa}\iff \ref{claim_fb}\iff \ref{claim_fc}\iff \ref{claim_fd}
+    \]
+    and the proof is complete.
+\end{proof}
 \begin{corollary}
-    If $x_n\in A$ eventually, then $x_n\in A$ frequently.
+    If $x_n$ is in $A$ eventually, then $x_n$ lies in $A$ frequently. Or the contrapositive: if $x_n$ is in $A^c$ frequently, then $x_n$ does not lie in $A$ eventually.
 \end{corollary}
-
 \end{document}
